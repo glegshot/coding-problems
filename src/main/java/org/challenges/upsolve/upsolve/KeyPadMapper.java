@@ -9,7 +9,7 @@ public class KeyPadMapper {
 
     Map<Character, Integer> keyMap;
 
-
+    // o(n2) solution ,need to make better preferable o(n) or lesser.
     public KeyPadMapper() {
         this.keyMap = new HashMap<>();
         keyMap.put('a', 2);
