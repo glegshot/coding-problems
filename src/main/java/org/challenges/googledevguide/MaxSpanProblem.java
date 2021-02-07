@@ -37,21 +37,33 @@ public class MaxSpanProblem {
     // time complextiy o(n) and space complexity o(n)
     public int maxSpanLinear(int[] nums) {
         int max = 0;
-        Map<Integer, Integer> spanMap = new HashMap<>();
+        Map<Integer, Node> spanMap = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {
             if (spanMap.containsKey(nums[i])) {
-                int span = i - spanMap.get(nums[i]) + 1;
-                if (span >= max) {
-                    max = span;
+                Node node = spanMap.get(nums[i]);
+                node.span = i - node.initialIndex + 1;
+                if (node.span >= max) {
+                    max = node.span;
                 }
-                spanMap.put(nums[i], span);
+                spanMap.put(nums[i], node);
             } else {
-                spanMap.put(nums[i], i);
+                spanMap.put(nums[i], new Node(i,0));
             }
         }
 
         return max;
+    }
+
+    //class stored as value in the map,with initialindex representing the first occurence index and span for the current key so far.
+    public static class Node{
+        int initialIndex;
+        int span;
+
+        public Node(int initialIndex, int span){
+            this.initialIndex = initialIndex;
+            this.span = span;
+        }
     }
 
 }
