@@ -1,4 +1,4 @@
-package org.challenges.upsolve.upsolve;
+package org.challenges.upsolve;
 
 import java.util.ArrayList;
 import java.util.HashMap;

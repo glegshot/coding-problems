@@ -1,6 +1,5 @@
 package org.challenges.upsolve;
 
-import org.challenges.upsolve.upsolve.KeyPadMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
