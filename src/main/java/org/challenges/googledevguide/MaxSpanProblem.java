@@ -2,6 +2,9 @@ package org.challenges.googledevguide;
 
 //https://techdevguide.withgoogle.com/paths/foundational/withoutstring-problem-strings-base-remove-return/#!
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Consider the leftmost and righmost appearances of some value in an array. We'll say that the "span" is the number of elements between the two inclusive. A single value has a span of 1. Returns the largest span found in the given array. (Efficiency is not a priority.)
  * <p>
@@ -28,6 +31,26 @@ public class MaxSpanProblem {
             }
 
         }
+        return max;
+    }
+
+    // time complextiy o(n) and space complexity o(n)
+    public int maxSpanLinear(int[] nums) {
+        int max = 0;
+        Map<Integer, Integer> spanMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if (spanMap.containsKey(nums[i])) {
+                int span = i - spanMap.get(nums[i]) + 1;
+                if (span >= max) {
+                    max = span;
+                }
+                spanMap.put(nums[i], span);
+            } else {
+                spanMap.put(nums[i], i);
+            }
+        }
+
         return max;
     }
 

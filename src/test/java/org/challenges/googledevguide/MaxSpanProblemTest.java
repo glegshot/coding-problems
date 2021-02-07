@@ -16,6 +16,14 @@ public class MaxSpanProblemTest {
 
     }
 
+    @Test
+    public void maxSpanNaiveLinear(){
+
+        MaxSpanProblem maxSpanProblem = new MaxSpanProblem();
+        Assert.assertEquals(4,maxSpanProblem.maxSpanLinear(new int[]{1,2,1,1,3}));
+
+    }
+
 
 
 
