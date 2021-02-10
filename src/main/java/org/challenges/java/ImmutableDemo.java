@@ -52,10 +52,12 @@ public class ImmutableDemo {
 //student makes itself final as well to prevent anyone faking to inherit its data as its child
 final class Student{
 
+    //make all member instances as private
     private String name;
     private int age;
     private Map<String,String> metaData;
 
+    //objects should be copied and set to instance members rather than making them reference
     public Student(String name, int age, Map<String,String> metaData){
         this.name = name;
         this.age = age;
@@ -66,6 +68,7 @@ final class Student{
         this.metaData = tempMap;
     }
 
+    //all setter methods removed to avoid manipulation during runtime
     public String getName() {
         return name;
     }
@@ -74,6 +77,7 @@ final class Student{
         return age;
     }
 
+    //return a copy of the metaData rather than reference to avoid manipulation
     public Map<String, String> getMetaData() {
         Map<String,String> tempMap = new HashMap<>();
         tempMap.putAll(metaData);
