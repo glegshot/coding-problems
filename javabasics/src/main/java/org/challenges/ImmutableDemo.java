@@ -1,4 +1,5 @@
-package org.challenges.java;
+package org.challenges;
+
 
 import java.util.HashMap;
 import java.util.Map;
