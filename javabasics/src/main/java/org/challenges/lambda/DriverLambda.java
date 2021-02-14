@@ -1,4 +1,4 @@
-package org.challenges;
+package org.challenges.lambda;
 
 public class DriverLambda {
 
