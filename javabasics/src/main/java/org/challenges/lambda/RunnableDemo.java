@@ -13,7 +13,6 @@ public class RunnableDemo {
         Thread thread = new Thread(runnableLambda);
         thread.start();
 
-
     }
 
 
