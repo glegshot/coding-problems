@@ -1,6 +1,4 @@
-package org.challenges.lambda;
-
-import java.util.function.Supplier;
+package org.challenges.lambda.examples;
 
 public class ClosureExample {
 

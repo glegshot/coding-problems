@@ -1,4 +1,4 @@
-package org.challenges.lambda;
+package org.challenges.lambda.examples;
 
 
 public class ThisReferenceExample {
