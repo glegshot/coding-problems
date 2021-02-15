@@ -15,7 +15,7 @@ public class OldestPerson {
          }
          return oldestPerson;**/
 
-        Optional<Person> oldestPerson = people.stream().sorted((o1, o2) -> o2.getAge() - o1.getAge()).findFirst();
+        Optional<Person> oldestPerson = people.stream().max((o1, o2) -> o1.getAge() - o2.getAge());
         return oldestPerson.get();
 
     }
