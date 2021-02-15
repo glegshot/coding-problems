@@ -1,4 +1,4 @@
-package org.challenges.lambda;
+package org.challenges.lambda.examples;
 
 import java.util.Arrays;
 import java.util.Collections;
