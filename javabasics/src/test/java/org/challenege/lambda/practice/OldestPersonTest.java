@@ -14,7 +14,7 @@ import java.util.List;
 public class OldestPersonTest {
 
     @Test
-    public void getOldestPersonSucess() {
+    public void getOldestPersonSuccess() {
         OldestPerson.Person sara = new OldestPerson.Person("Sara", 4);
         OldestPerson.Person viktor = new OldestPerson.Person("Viktor", 40);
         OldestPerson.Person eva = new OldestPerson.Person("Eva", 42);
