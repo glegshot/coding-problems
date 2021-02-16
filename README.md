@@ -1,3 +1,3 @@
 # coding-problems
 
-Collection of solutions for CP practice
+Collection of CP problems and Java 
