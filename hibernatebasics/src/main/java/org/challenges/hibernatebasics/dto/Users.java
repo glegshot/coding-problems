@@ -1,12 +1,17 @@
 package org.challenges.hibernatebasics.dto;
 
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Entity(name = "users")
 public class Users {
 
     @Id
+    @GeneratedValue
     @Column(name = "user_id")
     private int userId;
 
@@ -17,7 +22,30 @@ public class Users {
     @Temporal(TemporalType.DATE)
     private Date joinedDate;
 
-    private String address;
+    @ElementCollection
+    @JoinTable(name = "users_address", joinColumns = @JoinColumn(name = "user_id"))
+    /*@GenericGenerator(name="sequence-gen",strategy="sequence")
+    @CollectionId(columns = {@Column(name = "address_id")}, generator = "sequence-gen", type = @Type(type = "long"))*/
+    private Collection<Address> listOfAddresses = new ArrayList<>();
+
+
+    public Collection<Address> getListOfAddresses() {
+        return listOfAddresses;
+    }
+
+    public void setListOfAddresses(Collection<Address> listOfAddresses) {
+        this.listOfAddresses = listOfAddresses;
+    }
+
+    /*@AttributeOverrides({
+            @AttributeOverride(name = "city",column = @Column(name="HOME_CITY_NAME")),
+            @AttributeOverride(name="state",column = @Column(name = "HOME_STATE_NAME")),
+            @AttributeOverride(name="street",column = @Column(name = "HOME_STREET_NAME")),
+            @AttributeOverride(name="zipcode",column = @Column(name = "HOME_ZIP_CODE"))
+    })
+    private Address homeAddress;
+
+    private Address officeAddress;*/
 
     public int getUserId() {
         return userId;
@@ -43,11 +71,29 @@ public class Users {
         this.joinedDate = joinedDate;
     }
 
-    public String getAddress() {
-        return address;
+    /*public Address getHomeAddress() {
+        return homeAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public Address getOfficeAddress() {
+        return officeAddress;
+    }
+
+    public void setOfficeAddress(Address officeAddress) {
+        this.officeAddress = officeAddress;
+    }*/
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", joinedDate=" + joinedDate +
+                ", listOfAddresses=" + listOfAddresses +
+                '}';
     }
 }

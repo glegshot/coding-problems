@@ -1,5 +1,6 @@
 package org.challenges.hibernatebasics.Driver;
 
+import org.challenges.hibernatebasics.dto.Address;
 import org.challenges.hibernatebasics.dto.City;
 import org.challenges.hibernatebasics.dto.Users;
 import org.hibernate.Session;
@@ -42,7 +43,7 @@ public class CRUDDriver {
 
         session.close();*/
 
-        Users user = new Users();
+       /* Users user = new Users();
         user.setUserId(12);
         user.setUsername("sreekumar");
         user.setJoinedDate(new Date());
@@ -53,13 +54,42 @@ public class CRUDDriver {
         session.save(user);
         session.getTransaction().commit();
 
-        session.close();
+        session.close();*/
 
 
-        session = sessionFactory.openSession();
+
+/*
         Users userFromDb = (Users) session.get(Users.class,12);
         session.close();
         System.out.println(userFromDb);
+*/
+
+        /*Address homeAddress = new Address();
+        homeAddress.setCity("carson city");
+        homeAddress.setState("caroline");
+        homeAddress.setZipcode("452312");
+
+        Address officeAddress = new Address();
+        officeAddress.setCity("NewyorkCITY");
+        officeAddress.setStreet("123 Ave");
+        officeAddress.setZipcode("12345");
+        officeAddress.setState("NY");
+
+        Users user = new Users();
+        user.setUsername("glegshot");
+        user.getListOfAddresses().add(homeAddress);
+        user.getListOfAddresses().add(officeAddress);
+
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(user);
+        session.getTransaction().commit();
+        session.close();*/
+
+        Session session = sessionFactory.openSession();
+        Users testUser = (Users) session.get(Users.class,7);
+        System.out.println(testUser);
+        session.close();
 
 
         sessionFactory.close();
