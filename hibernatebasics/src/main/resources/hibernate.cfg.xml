@@ -32,6 +32,9 @@
         <mapping class="org.challenges.hibernatebasics.dto.Vehicle"/>
         <mapping class="org.challenges.hibernatebasics.dto.Student"/>
         <mapping class="org.challenges.hibernatebasics.dto.Pencil"/>
+        <mapping class="org.challenges.hibernatebasics.dto.Village"/>
+        <mapping class="org.challenges.hibernatebasics.dto.House"/>
+        <mapping class="org.challenges.hibernatebasics.dto.Soldiers"/>
 
     </session-factory>
 </hibernate-configuration>
