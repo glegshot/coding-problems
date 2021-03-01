@@ -3,8 +3,10 @@ package org.challenges.hibernatebasics.dto;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity(name = "soldiers")
+@NamedQuery(name = "soldiers.byId",query = "from soldiers where id = :id")
 public class Soldiers {
 
     @Id

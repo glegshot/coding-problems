@@ -20,7 +20,7 @@ public class HQLDriver {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         // to fill in data for HQL test
-       /* for(int i = 0;i < 5;i++){
+       /*for(int i = 0;i < 5;i++){
             soldiers = new Soldiers();
             soldiers.setRank("pvt");
             soldiers.setName("user "+i);
@@ -32,8 +32,8 @@ public class HQLDriver {
             soldiers.setRank("sgt");
             soldiers.setName("upgraded user "+i);
             session.save(soldiers);
-        }
-*/
+        }*/
+
 
         Query query = session.createQuery("from soldiers where rank like '%pvt%'");
         List<Soldiers> soldierList = query.list();
@@ -44,16 +44,34 @@ public class HQLDriver {
 
         session = sessionFactory.openSession();
         session.beginTransaction();
-        query = session.createQuery("select name from soldiers");
+        String minUserId = "6";
+        query = session.createQuery("select name from soldiers where id > :id");
+        query.setParameter("id", Integer.parseInt(minUserId));
+        query.setFirstResult(3);
         List<String> nameList = query.list();
 
         session.getTransaction().commit();
         session.close();
 
+
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        //named query example
+        query = session.getNamedQuery("soldiers.byId");
+        query.setParameter("id",10);
+        Soldiers soldier = (Soldiers) query.getSingleResult();
+        session.getTransaction().commit();
+        session.close();
+
+
         sessionFactory.close();
 
-        soldierList.stream().forEach(soldier -> System.out.println(soldier.getName()));
+        soldierList.stream().forEach(soldiers1 -> System.out.println(soldiers1.getName()));
+        System.out.println("------------------");
         nameList.stream().forEach(name -> System.out.println(name));
+        System.out.println("------------------");
+        System.out.println(soldier.getId()+":"+soldier.getName()+":"+soldier.getRank());
 
     }
 
