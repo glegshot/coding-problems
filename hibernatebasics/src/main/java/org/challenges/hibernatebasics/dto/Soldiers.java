@@ -1,11 +1,12 @@
 package org.challenges.hibernatebasics.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
 
 @Entity(name = "soldiers")
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "soldiers")
 @NamedQuery(name = "soldiers.byId",query = "from soldiers where id = :id")
 public class Soldiers {
 

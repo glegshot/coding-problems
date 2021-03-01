@@ -23,8 +23,12 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <property name="show_sql">true</property>
-        <!-- disable second leve cache-->
-        <property name="hibernate.cache.use_second_level_cache">false</property>
+
+
+        <!-- enable second leve cache-->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 
         <mapping class="org.challenges.hibernatebasics.dto.City"/>
         <mapping class="org.challenges.hibernatebasics.dto.Users"/>
