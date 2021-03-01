@@ -28,6 +28,10 @@
 
         <mapping class="org.challenges.hibernatebasics.dto.City"/>
         <mapping class="org.challenges.hibernatebasics.dto.Users"/>
+        <mapping class="org.challenges.hibernatebasics.dto.Person"/>
+        <mapping class="org.challenges.hibernatebasics.dto.Vehicle"/>
+        <mapping class="org.challenges.hibernatebasics.dto.Student"/>
+        <mapping class="org.challenges.hibernatebasics.dto.Pencil"/>
 
     </session-factory>
 </hibernate-configuration>
