@@ -38,6 +38,9 @@ public class CStringBuilder {
         return temp;
     }
 
+    //this will be of time complexity
+    //O(n) where n = length of array
+    //O(n*n) memory complexity where n = length of array
     @Override
     public String toString() {
         String string = "";
