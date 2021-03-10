@@ -57,5 +57,17 @@ public class QisUniqueTest {
         Assert.assertEquals(false, qisUnique.hasUniqueSolutionThree(value));
     }
 
+    @Test
+    public void checkIfStringContainsUniqueBitManipulationReturnTrueTest() {
+        String value = "abcsd";
+        Assert.assertEquals(true, qisUnique.hasUniqueSolutionFour(value));
+    }
+
+    @Test
+    public void checkIfStringContainsUniqueBitManipulationReturnFalseTest() {
+        String value = "abcsdd";
+        Assert.assertEquals(false, qisUnique.hasUniqueSolutionFour(value));
+    }
+
 
 }
