@@ -15,11 +15,23 @@ public class QURLifyTest {
     }
 
     @Test
-    public void performURLifyShiftCharacterApproachSuccessfullyTest(){
+    public void performURLifyShiftCharacterApproachSuccessfullyDataOneTest(){
 
         char[] input = new char[]{'M','r',' ','J','o','h','n',' ','S','m','i','t','h',' ',' ',' ',' '};
         char[] expectedOutput = new char[]{'M','r','%','2','0','J','o','h','n','%','2','0','S','m','i','t','h'};
         int trueLength = 13;
+
+        Assert.assertArrayEquals(expectedOutput,qurLify.performURLifyByShifting(input,trueLength));
+
+    }
+
+
+    @Test
+    public void performURLifyShiftCharacterApproachSuccessfullyDataTwoTest(){
+
+        char[] input = new char[]{' ',' ',' '}; //input string is a single whitespace only,the extra two are provided as per the question to accommodate the encoded values
+        char[] expectedOutput = new char[]{'%','2','0'};
+        int trueLength = 1;
 
         Assert.assertArrayEquals(expectedOutput,qurLify.performURLifyByShifting(input,trueLength));
 
