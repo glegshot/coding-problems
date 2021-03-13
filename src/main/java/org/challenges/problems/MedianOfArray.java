@@ -15,7 +15,7 @@ public class MedianOfArray {
      * @param valueArray
      * @return int[] median values
      */
-    public List<Integer> findMedian(@org.jetbrains.annotations.NotNull int[] valueArray) {
+    public List<Integer> findMedian(List<Integer> valueArray) {
 
         //variable to hold current max value in the iteration
         int max = Integer.MIN_VALUE;
@@ -24,26 +24,32 @@ public class MedianOfArray {
         int prevMax = Integer.MAX_VALUE;
 
         int iterationRequired = 0;
-        boolean isEven = true;
+        boolean isEven = false;
 
         List<Integer> median = new ArrayList<>();
 
-        if (valueArray.length % 2 == 0) {
-            iterationRequired = valueArray.length/2 + 1;
+        if (valueArray.size() % 2 == 0) {
+            iterationRequired = valueArray.size()/2 + 1;
+            isEven = true;
         } else {
-            iterationRequired = valueArray.length/2;
-            isEven = false;
+            iterationRequired = valueArray.size()/2;
+        }
+
+        if(valueArray.size() == 1){
+            return valueArray;
+        }else if (valueArray.size() == 0){
+            return median;
         }
 
         for (int counter = 0; counter < iterationRequired; counter++) {
             max = Integer.MIN_VALUE;
-            for (int i = 0; i < valueArray.length; i++) {
-                if (valueArray[i] >= max && valueArray[i] < prevMax) {
-                    max = valueArray[i];
+            for (int i = 0; i < valueArray.size(); i++) {
+                if (valueArray.get(i) >= max && valueArray.get(i) < prevMax) {
+                    max = valueArray.get(i);
                 }
             }
-            if (counter == iterationRequired - 1 && isEven) {
-                median.add(max);
+            if ((counter == iterationRequired - 1) & isEven) {
+                median.add(prevMax);
             }
             prevMax = max;
         }
