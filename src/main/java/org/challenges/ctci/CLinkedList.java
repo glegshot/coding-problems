@@ -42,12 +42,17 @@ public class CLinkedList<T> {
     public T get(int index) {
         int counter = 0;
         Node n = this.head;
-        while (n != null && counter < index) {
-            n = n.next;
-            if (counter == index) {
+
+
+        while (n != null) {
+
+            if(counter < index){
+                n = n.next;
+                counter++;
+            }else if (counter == index) {
                 return (T) n.value;
             }
-            counter++;
+
         }
 
         return null;
