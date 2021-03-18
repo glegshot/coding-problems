@@ -28,4 +28,21 @@ public class MoveAllZeroesToEndTest {
         Assert.assertArrayEquals(expectedOutput, moveAllZeroesToEnd.moveAllZeroesToEnd(inputArray));
     }
 
+    @Test
+    public void moveAllZeroesToEndWithoutExtraSpaceSecondDataTest(){
+        MoveAllZeroesToEnd moveAllZeroesToEnd = new MoveAllZeroesToEnd();
+        int[] inputArray = new int[]{1, 2, 0, 4, 3, 0, 5, 0};
+        int[] expectedOutput = new int[]{1, 2, 4, 3, 5, 0, 0, 0};
+        Assert.assertArrayEquals(expectedOutput, moveAllZeroesToEnd.moveAllZeroesToEndWithoutExtraSpace(inputArray));
+    }
+
+    @Test
+    public void moveAllZeroesToEndWithoutExtraSpaceTest(){
+        MoveAllZeroesToEnd moveAllZeroesToEnd = new MoveAllZeroesToEnd();
+        int[] inputArray = new int[]{1, 2, 0, 4, 3, 0, 5, 0};
+        int[] expectedOutput = new int[]{1, 2, 4, 3, 5, 0, 0, 0};
+        Assert.assertArrayEquals(expectedOutput, moveAllZeroesToEnd.moveAllZeroesToEndWithoutExtraSpace(inputArray));
+    }
+
+
 }

@@ -1,7 +1,6 @@
 package org.challenges.problems;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class MoveAllZeroesToEnd {
@@ -40,5 +39,32 @@ public class MoveAllZeroesToEnd {
 
     }
 
+    /**
+     *
+     *
+     * @param inputArray
+     */
+    public int[] moveAllZeroesToEndWithoutExtraSpace(int[] inputArray){
+        int count = 0;
+
+        for(int i = 0;i< inputArray.length;i++){
+
+            if(inputArray[i] != 0){
+                inputArray[count] = inputArray[i];
+                count++;
+            }
+
+        }
+
+        int i = inputArray.length - 1 ;
+        while(count > 0){
+            inputArray[i] = 0;
+            i--;
+            count--;
+        }
+
+        return inputArray;
+
+    }
 
 }
