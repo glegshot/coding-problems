@@ -23,6 +23,9 @@ public class BinaryTreeNodeDeletion {
     public boolean deleteNode(BinaryTreeNode root, int deleteValue) {
         n = root;
         delNode = root;
+        if(root == null){
+            return true;
+        }
         findNodes(root, deleteValue, 0);
 
         if (n.rightChild != null) {
