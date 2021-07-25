@@ -30,7 +30,7 @@ public class BinaryTreeNodeDeletionTest {
         expectedList.add(null);
 
         BinaryTreeNodeDeletion binaryTreeNodeDeletion = new BinaryTreeNodeDeletion();
-        Assert.assertTrue(binaryTreeNodeDeletion.deleteNode(root, 10));
+        Assert.assertNotNull(binaryTreeNodeDeletion.deleteNode(root, 10));
 
         Assert.assertTrue(expectedList.equals(generateResult(root)));
 
@@ -45,7 +45,7 @@ public class BinaryTreeNodeDeletionTest {
         expectedList.add(null);
 
         BinaryTreeNodeDeletion binaryTreeNodeDeletion = new BinaryTreeNodeDeletion();
-        Assert.assertTrue(binaryTreeNodeDeletion.deleteNode(root, 10));
+        Assert.assertNull(binaryTreeNodeDeletion.deleteNode(root, 10));
 
         Assert.assertTrue(expectedList.equals(generateResult(root)));
 
@@ -86,7 +86,7 @@ public class BinaryTreeNodeDeletionTest {
         expectedList.add(null);
 
         BinaryTreeNodeDeletion binaryTreeNodeDeletion = new BinaryTreeNodeDeletion();
-        Assert.assertTrue(binaryTreeNodeDeletion.deleteNode(root, 20));
+        Assert.assertNotNull(binaryTreeNodeDeletion.deleteNode(root, 20));
 
 
         Assert.assertTrue(expectedList.equals(generateResult(root)));

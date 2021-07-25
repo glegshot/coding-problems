@@ -20,25 +20,26 @@ public class BinaryTreeNodeDeletion {
      *
      *
      */
-    public boolean deleteNode(BinaryTreeNode root, int deleteValue) {
+    public BinaryTreeNode deleteNode(BinaryTreeNode root, int deleteValue) {
         n = root;
         delNode = root;
         if(root == null){
-            return true;
+            return null;
         }
         findNodes(root, deleteValue, 0);
+        if(delNode == root){
+            return null;
+        }
 
         if (n.rightChild != null) {
             delNode.data = n.rightChild.data;
             n.rightChild = null;
-            return true;
         } else if (n.leftChild != null) {
             delNode.data = n.leftChild.data;
             n.leftChild = null;
-            return true;
         }
 
-        return false;
+        return root;
 
     }
 
